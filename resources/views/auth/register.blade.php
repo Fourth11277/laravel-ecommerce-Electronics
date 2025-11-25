@@ -10,7 +10,6 @@
 <body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
     <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-md w-full space-y-8">
-           
             <div class="text-center">
                 <div class="mx-auto h-16 w-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
                     <i class="fas fa-microchip text-white text-2xl"></i>
@@ -20,12 +19,10 @@
                 <h3 class="mt-6 text-2xl font-bold text-gray-800">Create your account</h3>
             </div>
 
-            
             <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
                 <form class="space-y-6" action="{{ route('register') }}" method="POST">
                     @csrf
-                    
-                    
+
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
                             <i class="fas fa-user mr-2 text-blue-600"></i>Full Name
@@ -35,7 +32,6 @@
                                placeholder="Enter your full name">
                     </div>
 
-                    
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
                             <i class="fas fa-envelope mr-2 text-blue-600"></i>Email Address
@@ -45,7 +41,6 @@
                                placeholder="Enter your email">
                     </div>
 
-                   
                     <div>
                         <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
                             <i class="fas fa-lock mr-2 text-blue-600"></i>Password
@@ -55,7 +50,6 @@
                                placeholder="Create a password">
                     </div>
 
-                    
                     <div>
                         <label for="password_confirmation" class="block text-sm font-medium text-gray-700 mb-2">
                             <i class="fas fa-lock mr-2 text-blue-600"></i>Confirm Password
@@ -65,7 +59,6 @@
                                placeholder="Confirm your password">
                     </div>
 
-                    
                     <div class="flex items-center">
                         <input id="terms" name="terms" type="checkbox" required
                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
@@ -77,7 +70,6 @@
                         </label>
                     </div>
 
-                   
                     <div>
                         <button type="submit" 
                                 class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300">
@@ -87,7 +79,6 @@
                     </div>
                 </form>
 
-               
                 <div class="mt-6 text-center">
                     <p class="text-gray-600">
                         Already have an account? 
@@ -98,7 +89,6 @@
                 </div>
             </div>
 
-            
             <div class="grid grid-cols-2 gap-4 mt-8">
                 <div class="text-center">
                     <div class="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
