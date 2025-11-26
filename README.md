@@ -21,6 +21,36 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Admin Middleware Setup
+
+The project now ships with a dedicated `EnsureUserIsAdmin` middleware to gate admin dashboards.
+
+1. **Create middleware**  
+   ```bash
+   php artisan make:middleware EnsureUserIsAdmin
+   ```
+   The middleware checks `Auth::user()`, redirects guests to `login`, verifies the `is_admin` flag (or optional `hasRole('admin')`), and returns JSON `403` responses for API callers.
+
+2. **Register middleware**  
+   `bootstrap/app.php` aliases `auth` and `admin`, so you can apply the guard via `Route::middleware(['auth','admin'])`.
+
+3. **Database flag**  
+   Run `php artisan migrate` to add the `is_admin` boolean column (defaults to `false`). Update seeders/factories with `is_admin => true` for your admin accounts.
+
+4. **Protect routes/controllers**  
+   Example:
+   ```php
+   Route::middleware(['auth', 'admin'])->group(function () {
+       Route::get('/admin/dashboard', [AdminController::class, 'index']);
+   });
+   ```
+   Controllers can also call `$this->middleware(['auth','admin']);` in their constructor as demonstrated in `AdminController`.
+
+5. **Custom 403 UX**  
+   A bespoke `resources/views/errors/403.blade.php` page is included. APIs keep returning JSON as needed.
+
+Feel free to extend this foundation with role packages (e.g. Spatie) by implementing `hasRole('admin')` on the `User` model; the middleware already detects it.
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
