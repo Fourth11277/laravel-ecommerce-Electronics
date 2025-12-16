@@ -79,11 +79,17 @@
                     </div>
                 </form>
 
-                <div class="mt-6 text-center">
+                <div class="mt-6 text-center space-y-2">
                     <p class="text-gray-600">
                         Already have an account? 
                         <a href="{{ route('login') }}" class="font-medium text-blue-600 hover:text-blue-500 transition-colors">
                             Sign in here
+                        </a>
+                    </p>
+                    <p class="text-sm text-gray-500">
+                        Admin? 
+                        <a href="{{ route('admin.register') }}" class="font-medium text-red-600 hover:text-red-500 transition-colors">
+                            Register as admin
                         </a>
                     </p>
                 </div>
